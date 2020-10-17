@@ -1,0 +1,6 @@
+
+.service:hover{
+    padding: 20px 18px;
+    box-shadow: 0 0 10px gray;
+    border-radius: 10px;
+}

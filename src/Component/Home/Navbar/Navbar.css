@@ -1,0 +1,11 @@
+.navbar img{
+    width: 130px;
+}
+
+.login-btn{
+    color: white!important;
+    padding: 8px 10px;
+    background: black;
+    text-decoration: none!important;
+    border-radius: 5px;
+}
