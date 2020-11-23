@@ -45,10 +45,10 @@ function App() {
     
     <Login></Login>
     </Route>
-    <PrivateRoute path="/admin">
+    <Route path="/admin">
     
     <Admin></Admin>
-    </PrivateRoute>
+    </Route>
     <Route path="/service">
     <Service></Service>
     </Route>

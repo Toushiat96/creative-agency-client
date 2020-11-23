@@ -4,7 +4,7 @@ import Sidebar from '../Sidebar/Sidebar';
 import { Form ,Button } from "react-bootstrap";
 import { UserContext , serviceContext } from '../../../App';
 import { useContext  } from 'react';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 const Order = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     const [serviceDetails, setServiceDetails] = useContext(serviceContext)
@@ -24,22 +24,24 @@ const handleBlur = e => {
 const handleSubmit = () =>{
     const formData = new FormData();
     formData.append('file', file);
-    formData.append('name', loggedInUser.name);
-    formData.append('email', loggedInUser.email);
-    formData.append('service', serviceDetails.service);
-    formData.append('description', serviceDetails.description);
-    formData.append('price', serviceDetails.price);
+    formData.append('name',info.name);
+    formData.append('email', info.email);
+    formData.append('service', info.service);
+    formData.append('description', info.description);
+    formData.append('price', info.price);
    
-    fetch('http://localhost:5000/addOrder', {
+    fetch('http://localhost:10000/addorder', {
         method: 'POST',
         body: formData
     })
+    
         .then(response => response.json())
         .then(data => {
             if (data) {
                 alert('Your order is submitted...!');
             }
         })
+        
         .catch(error => {
             console.error(error)
         })
@@ -51,8 +53,9 @@ const handleSubmit = () =>{
             <div className="row">
             <div className="col-md-3 mt-3">
             <div className="mb-5">
+            <Link to="/home">
             <img src={logo} className="img-fluid w-50" alt="" />
-            
+            </Link>
             </div>
             <Sidebar></Sidebar>
             </div>
@@ -63,10 +66,10 @@ const handleSubmit = () =>{
                                 <input onBlur={handleBlur}  className="form-control  form-control-lg" type="text"  name="name" placeholder="Your name / company's name" />
                             </div>
                             <div className="form-group">
-                                <input onBlur={handleBlur}  className="form-control  form-control-lg" type="email"  name="email" placeholder="Your email address" />
+                                <input onBlur={handleBlur}  className="form-control  form-control-lg" type="email"  name={loggedInUser.name} placeholder="Your email address" />
                             </div>
                             <div className="form-group">
-                                <input onBlur={handleBlur}  className="form-control  form-control-lg" type="text" name="service" placeholder="Course name" />
+                                <input onBlur={handleBlur}  className="form-control  form-control-lg" type="text" name={loggedInUser.email} placeholder="Course name" />
                             </div>
                             <div className="form-group">
                                 <textarea onBlur={handleBlur}  name="description" cols="15" rows="5" className="form-control  form-control-lg" name="description" placeholder="Project Details"></textarea>

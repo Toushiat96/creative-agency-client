@@ -8,7 +8,7 @@ const Review = () => {
   const [loggedInUser, setLoggedInUser] = useContext(UserContext);
   const [review, setReview] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/getfeedback")
+    fetch("http://localhost:10000/getfeedback" )
       .then((response) => response.json())
       .then((data) => setReview(data));
   }, []);

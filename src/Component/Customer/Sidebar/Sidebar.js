@@ -11,7 +11,7 @@ const Sidebar = () => {
                     <Link className="text-decoration-none text-dark item" to="/order"><FontAwesomeIcon icon={faCartPlus} /> Order</Link>
                 </li>
                 <li>
-                    <Link className="text-decoration-none text-dark item" to="/service-list"><FontAwesomeIcon icon={faList} /> Service-list</Link>
+                    <Link className="text-decoration-none text-dark item" to="/service"><FontAwesomeIcon icon={faList} /> Service-list</Link>
                 </li>
                 <li>
                 <Link className="text-decoration-none text-dark item" to="/review"><FontAwesomeIcon icon={faCommentDots} /> Review</Link>
